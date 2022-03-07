@@ -1,0 +1,121 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_help
+  - action: action_help
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_help
+  - action: action_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_help
+  - action: action_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+- story: help path 1
+  steps:
+  - intent: help
+  - action: utter_help
+  - intent: about_company
+  - action: utter_about
+  - action: utter_morehelp
+  - intent: more_help
+  - action: utter_help
+  - action: action_help
+
+- story: policy path 
+  steps:
+  - intent: company_policy
+  - action: utter_policy
+  - action: utter_morehelp
+
+- story: career path 
+  steps:
+  - intent: career
+  - action: utter_career
+  - action: utter_morehelp
+
+- story: morepolicy path
+  steps:
+  - intent: more_policy
+  - action: action_morepolicy
+  - action: utter_morehelp
+  - intent: leave_policy
+  - action: utter_leave
+  - action: utter_morehelp
+  - intent: wfh_policy
+  - action: utter_wfh
+  - action: utter_morehelp
+
+- story: morepolicy path 1
+  steps:
+  - intent: referral_policy
+  - action: utter_referral
+  - action: utter_morehelp
+  - intent: emp_policy
+  - action: utter_emp
+  - action: utter_morehelp
+  - intent: travel_policy
+  - action: utter_travel
+  - action: utter_morehelp
+
+
+- story: loginhelp path 1
+  steps:
+  - intent: login_help
+  - action: utter_loginhelp
+  - intent: login
+  - action: utter_login
+  - action: utter_moreloginhelp
+
+- story: loginhelp path 2
+  steps:
+  - intent: forgot_password
+  - action: utter_forgot
+  - action: utter_moreloginhelp
+  - intent: change_password
+  - action: utter_change
+  - action: utter_moreloginhelp
+  
+
+
+
+
+
+
+
+
+
+
+
+- story: gtnhelp path
+  steps:
+  - intent: gtn_help
+  - action: utter_gtnhelp
+
+- story: endhelp path
+  steps:
+  - intent: end_help
+  - action: utter_endhelp

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <title>{% block title %}{% endblock title %} - Integrichain</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Integrichain</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gtn">GTN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block body %}
+
+    <!-- {% include 'chatbot.html' %} -->
+    {% endblock body %}
+
+    <style>
+        .rw-conversation-container .rw-header {
+            background-color: #0063be;
+        }
+
+        .rw-conversation-container .rw-message .rw-response {
+            background-color: lightyellow;
+        }
+
+        .rw-conversation-container .rw-message .rw-client {
+            background-color: lightblue;
+            color: black;
+        }
+
+        /* .rw-launcher {
+            background-color: #0063be;
+        } */
+
+        .rw-new-message {
+            visibility: hidden;
+        }
+
+        .rw-close-button {
+            visibility: hidden;
+        }
+
+        .rw.sender {
+            visibility: hidden;
+        }
+
+        .conversation-container .close-button {
+            background-color: red;
+        }
+    </style>
+    <script>!(function () {
+            let e = document.createElement("script"), t = document.head || document.getElementsByTagName("head")[0];
+
+
+            let ip = "";
+            let loc = window.location.href;
+            if (loc.includes("login")) {
+                ip = "/login_help";
+            } else if (loc.includes("gtn")) {
+                ip = "/gtn_help";
+            } else {
+                ip = "/greet";
+            }
+
+
+            (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+                // Replace 1.x.x with the version that you want
+                (e.async = !0),
+                (e.onload = () => {
+                    window.WebChat.default(
+                        {
+                            initPayload: ip,
+                            // welcomeMessage: "Hi I am a chatbot. Welcome to ICyteHelp Center",
+                            customData: { language: "en" },
+                            socketUrl: "http://localhost:5005",
+                            // add other props here
+                            title: 'ICyte ChatBot',
+                            subtitle: 'powered by Integrichain',
+                            profileAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1156IMXKgqcgq8bBxWbdsGr51G5uzd90RMw&usqp=CAU",
+                            inputTextFieldHint: 'Type help to get help',
+                            showMessageDate: true
+                        },
+                        null
+                    );
+                }),
+                t.insertBefore(e, t.firstChild);
+        })();
+        //clear chatbot after refresh
+        localStorage.clear();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - help
+  - more_help
+  - about_company
+  - company_policy
+  - career
+  - more_policy
+  - leave_policy
+  - wfh_policy
+  - referral_policy
+  - emp_policy
+  - travel_policy
+  - login_help
+  - login
+  - forgot_password
+  - change_password
+  - gtn_help
+  - end_help
+
+actions:
+  # - action_loginhelp
+  - action_help
+  - action_morepolicy
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+    buttons:
+    - title: 'Good'
+      payload: '/mood_great'
+    - title: 'Sad'
+      payload: '/mood_unhappy'
+
+  utter_cheer_up:
+  - text: "No to worry, good days comming soon"
+  # - text: "Here is something to cheer you up:"
+    # image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_help:
+  - text: "How may I help you?"
+
+  utter_about:
+  - text: "IntegriChain is the largest provider of access managed services to the Life Sciences industry \n [learn more](https://www.integrichain.com/)"
+
+  utter_policy:
+  - text: "There are some policy which is written bellow"
+
+  utter_career:
+  - text: "Career in integrichain"
+
+  utter_leave:
+  - text: "The purpose of this policy is to offer a bouquet of leaves and holidays to all employees and prescribe rules for availing various types of leaves."
+
+  utter_wfh:
+  - text: "IntegriChain offers a Work from Home program to accommodate work-life balance. To ensure an effective, fair, and productive Work from Home program, IntegriChain has defined and established a Work from Home policy. This policy has been designed with the understanding that IntegriChain employees’ commuting distance to the office is widely varied."
+
+  utter_referral:
+  - text: "Integrichain is proud to provide our employees with the opportunity to play a large part in our growth by compensating them with an aggressive referral commission program. This policy aims to encourage employees to refer qualified candidates for open full-time permanent positions."
+
+  utter_emp:
+  - text: "To be done"
+
+  utter_travel:
+  - text: "Leave Travel Allowance (LTA) is a type of allowance which is given to an employee from his employer to cover his travel expenses when he is on leave from work."
+
+  utter_morehelp:
+  - text: "Do you need more help"
+    buttons:
+    - title: 'Yes'
+      payload: '/help'
+    - title: 'No'
+      payload: '/end_help'
+
+
+
+
+
+
+
+  utter_loginhelp:
+  - text: "Welcome to ICyte Login help center"
+    buttons:
+    - title: 'How to login'
+      payload: '/login'
+    - title: 'Forgot password'
+      payload: '/forgot_password'
+    - title: 'Change password'
+      payload: "/change_password"
+
+  utter_login:
+  - text: "First you have to create account on icyte help. for this you need valid email id and mobile number [learn more](https://integrichain-uat.auth.us-east-1.amazoncognito.com/login?client_id=5m3ge6m8tejtegvv0ce43gcm91&redirect_uri=https%3A%2F%2Fcloud.integrichain.com%2Foauth2%2Fidpresponse&response_type=code&scope=openid&state=dZcQedaAUT8iddGABGTxBttLTPr5okIMkvItOZsDEMerYwLdZzMLToZn0ai79rsvNptyVY5N2SZ%2B9eANEAZz1HpimDbx254bxHG4nCfqAQ%2FNYRN4%2F9jMYfPgh8atOlOO9WdC1nXBoyXxyWcZDIKcpxN69d%2BQCK34DazPS0qPN4PNmGLJ6FFE6ClzT40zV3ie79GafxfVHv96pgrd8CmKVqG%2B)"
+
+  utter_forgot:
+  - text: "First you have to enter your registered email id then you will get an OTP for verifications. After validation your otp you will refirect to change password page then you can create new password"
+
+  utter_change:
+  - text: "First you click on forgot password link then you will get an otp for varification."
+
+  utter_moreloginhelp:
+  - text: "Do you need more help"
+    buttons:
+    - title: 'Yes'
+      payload: '/login_help'
+    - title: 'No'
+      payload: '/end_help'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  utter_gtnhelp:
+  - text: "Welcome to GTN help center"
+
+  utter_endhelp:
+  - text: "Thank you! See you soon"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
