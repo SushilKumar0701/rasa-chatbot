@@ -9,7 +9,6 @@ intents:
   - mood_unhappy
   - bot_challenge
   - help
-  - more_help
   - about_company
   - company_policy
   - career
@@ -25,6 +24,8 @@ intents:
   - change_password
   - gtn_help
   - end_help
+  - gtn_video
+  - gtn_website
 
 actions:
   # - action_loginhelp
@@ -141,6 +142,27 @@ responses:
 
   utter_gtnhelp:
   - text: "Welcome to GTN help center"
+    buttons:
+    - title: 'Watch Video'
+      payload: '/gtn_video'
+    - title: 'Visit website'
+      payload: '/gtn_website'
+
+  utter_gtnvideo:
+  - text: ""
+    attachment: { "type":"video", "payload":{ "src": "https://youtube.com/embed/9C1Km6xfdMA" } }
+
+  utter_gtnwebsite:
+  - text: "Please [Click Here](https://www.integrichain.com/products/gtn/)"
+
+  utter_gtnmorehelp:
+  - text: "Do you need more help"
+    buttons:
+    - title: 'Yes'
+      payload: '/gtn_help'
+    - title: 'No'
+      payload: '/end_help'
+
 
   utter_endhelp:
   - text: "Thank you! See you soon"

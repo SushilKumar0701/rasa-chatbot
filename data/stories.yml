@@ -38,12 +38,11 @@ stories:
   steps:
   - intent: help
   - action: utter_help
+  - action: action_help
   - intent: about_company
   - action: utter_about
   - action: utter_morehelp
-  - intent: more_help
-  - action: utter_help
-  - action: action_help
+
 
 - story: policy path 
   steps:
@@ -61,7 +60,6 @@ stories:
   steps:
   - intent: more_policy
   - action: action_morepolicy
-  - action: utter_morehelp
   - intent: leave_policy
   - action: utter_leave
   - action: utter_morehelp
@@ -110,10 +108,20 @@ stories:
 
 
 
-- story: gtnhelp path
+- story: gtnhelp path 1
   steps:
   - intent: gtn_help
   - action: utter_gtnhelp
+  - intent: gtn_video
+  - action: utter_gtnvideo
+  - action: utter_gtnmorehelp
+
+- story: gtnhelp path 2
+  steps:
+  - intent: gtn_website
+  - action: utter_gtnwebsite
+  - action: utter_gtnmorehelp
+
 
 - story: endhelp path
   steps:
